@@ -187,8 +187,8 @@
 	<nav id="left" class="column">
 			<h3 style=" color: red;">Danh Mục Chính</h3>
 			<ul>
-				<li> <button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Sinh Viên</button></li>
-				<li> <button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success">Tra Cứu Điểm</button></li>
+				<li> <a href="Sv"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Sinh Viên</button></a></li>
+				<li> <a href="Score"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success">Tra Cứu Điểm</button></a></li>
 				<li> <button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Tra Cứu Môn Học</button></li>
 				<li> <button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Đăng Ký Môn Học</button></li>
 				<li> <a href="DoiMK"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Đổi Mật Khẩu</button></a></li>

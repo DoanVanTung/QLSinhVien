@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import Connection.*;
 
 @Controller
 public class Delete_sv {
@@ -31,12 +31,11 @@ public class Delete_sv {
 		return con;
 	}
 
-	@RequestMapping(value = "/Delete/{aaa}", method = RequestMethod.POST, headers = "Accept=*/*", produces = {
+	@RequestMapping(value = "/Delete_sv/{id_sinhvien}", method = RequestMethod.POST, headers = "Accept=*/*", produces = {
 			MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
-	public void deleteStudent(@PathVariable("aaa") String empNo) throws ClassNotFoundException, SQLException {
-
+	public String deleteStudent(@PathVariable("id_sinhvien") String empNo) throws ClassNotFoundException, SQLException {
 		
 		String sql="delete from sinhvien where maSV='" + empNo + "'";
 		try {
@@ -47,7 +46,7 @@ public class Delete_sv {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return empNo;
 	}
 
 }

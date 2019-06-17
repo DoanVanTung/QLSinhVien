@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import Connection.*;
 import Model.SinhVien;
 
 
@@ -33,7 +33,7 @@ public class Seach_SV {
 		return con;
 	}
 
-	@RequestMapping(value = "/seach/{aaa}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE, //
+	@RequestMapping(value = "/seach_sv/{aaa}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public ArrayList<SinhVien> abc(@PathVariable("aaa") String tenSV) throws ClassNotFoundException, SQLException {

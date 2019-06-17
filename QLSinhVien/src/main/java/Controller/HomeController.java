@@ -30,11 +30,11 @@ public class HomeController {
 		Connection con = ConnectionDB.getInstance().getConnection();
 		return con;
 	}
-	@RequestMapping("Sv")
+	@RequestMapping("/Sv")
 	public String Sv() {
 		return "Sinhvien";
 	}
-	@RequestMapping("Score")
+	@RequestMapping("/Score")
 	public String Score() {
 		return "Cer_Table";
 	}
@@ -74,7 +74,7 @@ public class HomeController {
 		if (d == 1) {
 			return "index";
 		} else {
-			model.addAttribute("mess", "Sai thông Tin Đăng Nhập");
+			model.addAttribute("mess", "Sai thÃ´ng Tin Ä�Äƒng Nháº­p");
 			return "Login";
 		}
 	}
@@ -116,7 +116,7 @@ public class HomeController {
 					pstmt = conn.prepareStatement("insert into DangNhap values('" + arr[0] + "',N'" + arr[1] + "')");
 					pstmt.executeUpdate();
 					tg = 1;
-					moMap.addAttribute("mess1", "Đăng Kí thành Công");
+					moMap.addAttribute("mess1", "Ä�Äƒng KÃ­ thÃ nh CÃ´ng");
 				} else {
 					tg = 2;
 				}

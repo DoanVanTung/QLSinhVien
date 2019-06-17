@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.ModelMap;
+import Connection.*;
 
 
 @Controller
@@ -58,11 +59,11 @@ public class Add_sv {
 		}
 		if (check == 2) {
 			mn.put("abc", "mã sinh viên đã tồn tại");
-			return "Bangdiem";
+			return "Sinhvien";
 		} else {
 			pstmt = conn.prepareStatement("insert into sinhvien values('" + maSV + "','" + tenSV + "','" + age + "')");
 			pstmt.executeUpdate();
-			return "Bangdiem";
+			return "Sinhvien";
 		}
 
 	}

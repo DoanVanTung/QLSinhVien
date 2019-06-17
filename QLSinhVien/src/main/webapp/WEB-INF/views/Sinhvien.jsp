@@ -32,7 +32,7 @@
 					function() {
 						$
 								.ajax({
-									url : "user",
+									url : "table_sv",
 									type : "Get",
 									contentType : "application/json",
 									// DataType : 'json',
@@ -63,17 +63,18 @@
 
 		$.ajax({
 
-			url : "Delete/" + id,
+			url : "Delete_sv/" + id,
 			type : "POST",
 			contentType : "application/json",
 			dataType : 'json',
-			success : function(data) {
+			success : function() {
 				alert("success");
 				location.reload();
 
 			},
 			error : function() {
-				alert("error occurred@");
+				alert("error occurred 1");
+				location.reload();
 			}
 		});
 
@@ -151,7 +152,7 @@ function functionEdit1() {
 		var b = document.getElementById("tenSV").value;
 		var c = document.getElementById("age").value;
 		$.ajax({
-			url : "edit",
+			url : "edit_sv",
 			type : "post",
 			data : {
 				maSV : a,
@@ -177,7 +178,7 @@ function functionEdit1() {
 		$
 				.ajax({
 
-					url : "seach/" + a,
+					url : "seach_sv/" + a,
 					type : "GET",
 					contentType : "application/json",
 					dataType : 'json',
@@ -192,7 +193,7 @@ function functionEdit1() {
 									+ res[i].age
 									+ "</td> <td><button id='"
 									+ res[i].maSV
-									+ "' onclick='myFunction("
+									+ "' onclick='functionDelete("
 									+ res[i].maSV
 									+ ")'  class='btn btn-info btn-lg' data-toggle='modal'>delete</button></td> <td><button data-target='#myModalAdd' onclick='functionEdit1()'  class='btn btn-info btn-lg' data-toggle='modal'>edit</button></td></tr>";
 							$('#content1').html(data);
@@ -276,7 +277,7 @@ function functionEdit1() {
 			<button id="add">thêm thông tin sinh viên</button>
 			<button id="seach">tìm kiếm sinh viên</button>
 			<br> <br>
-			<form class="form-horizontal" id="form" hidden method="post">
+			<div class="form-horizontal" id="form" hidden >
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">mã sinh
 						viên:</label>
@@ -303,8 +304,8 @@ function functionEdit1() {
 					<button onclick="addNew()">submit</button>
 				</div>
 
-			</form>
-			<form class="form-horizontal" id="form1" hidden method="post">
+			</div>
+			<div class="form-horizontal" id="form1" hidden >
 
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">nhập tên
@@ -320,7 +321,7 @@ function functionEdit1() {
 						class='btn btn-info btn-lg' data-toggle='modal'>submit</button>
 				</div>
 
-			</form>
+			</div>
 		</div>
 
 		<%-- popup  tìm kiếm sinh viên --%>

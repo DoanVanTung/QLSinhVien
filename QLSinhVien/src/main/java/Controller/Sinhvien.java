@@ -35,7 +35,7 @@ public class Sinhvien {
         return con;
     }
     
-    @RequestMapping(value = "/user", method = RequestMethod.GET, headers="Accept=*/*",produces = { MediaType.APPLICATION_JSON_VALUE, //
+    @RequestMapping(value = "/table_sv", method = RequestMethod.GET, headers="Accept=*/*",produces = { MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public ArrayList<SinhVien> sv() throws ClassNotFoundException, SQLException {

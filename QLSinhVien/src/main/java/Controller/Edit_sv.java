@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import Connection.*;
 @Controller
 public class Edit_sv {
 	private Connection conn;
@@ -30,7 +30,7 @@ public class Edit_sv {
 		return con;
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE, //
+	@RequestMapping(value = "/edit_sv", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 
 	public String abc(@RequestParam("maSV") int maSV, @RequestParam("tenSV") String tenSV,
@@ -40,7 +40,7 @@ public class Edit_sv {
 		pstmt = conn.prepareStatement(
 				"update sinhvien set tensv='"+tenSV+"',age='"+age+"' where maSV ='"+maSV+"' ");
 		pstmt.executeUpdate();
-		return "Bangdiem";
+		return "Sinhvien";
 
 	}
 }
