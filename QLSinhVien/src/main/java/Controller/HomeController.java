@@ -38,6 +38,10 @@ public class HomeController {
 	public String Score() {
 		return "Cer_Table";
 	}
+	@RequestMapping("SubjectQ")
+	public String Subject() {
+		return "Subject";
+	}
 	@RequestMapping()
 	public String Login() {
 		return "Login";
