@@ -1,21 +1,24 @@
 package Connection;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConnectionDB {
 
     // static reference to itself
     private static ConnectionDB instance = new ConnectionDB();
-    String url = "jdbc:sqlserver://localhost:1433;database=QuanLySinhVien;";
-    String user = "sa";
-    String password = "123";
+    String url = "jdbc:postgresql://127.0.0.1:5432/QuanLySinhVien";
+    String user = "postgres";
+    String password = "ngkhai99";
     
     // private constructor
     private ConnectionDB() {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -29,9 +32,5 @@ public class ConnectionDB {
         Connection connection = DriverManager.getConnection(url, user, password);
         return connection;
     }
-
-    // Test connection database
-//    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//        System.out.println(getInstance().getConnection());
-//    }
+    
 }

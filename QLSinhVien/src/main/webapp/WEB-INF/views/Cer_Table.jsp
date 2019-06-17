@@ -152,8 +152,8 @@ button, textarea {
 						</div>
 						<div class="modal-body">
 							<form method="post" id="edit_form">
-								<input type="text" name="idsub" id="idsub" class="form-control"
-									hidden /> <label>ID</label><input type="text" name="ids"
+								<input type="hidden" name="idsub" id="idsub" class="form-control"
+									 /> <label>ID</label><input type="text" name="ids"
 									id="ids" class="form-control" readonly="true" /> <label>Name</label><input
 									type="text" name="names" id="names" class="form-control"
 									readonly="true" /> <label>Điểm_1</label><input type="number"

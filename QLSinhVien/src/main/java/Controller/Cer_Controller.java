@@ -38,7 +38,7 @@ public class Cer_Controller {
 	@ResponseBody
 	public ArrayList<Certificate> sv() {
 		ArrayList<Certificate> list = new ArrayList<Certificate>();
-		String sql = "SELECT  Diem.mamh,sinhvien.MASV,sinhvien.TenSV,MonHoc.TenMon,Diem.Diem_1,Diem.Diem_2 from sinhvien  join Diem on sinhvien.MaSV = Diem.MaSV  join MonHoc on Diem.MaMH = MonHoc.MaMH";
+		String sql = "SELECT  Diem.mamh,sinhvien.MASV,sinhvien.TenSV,MonHoc.TenMon,Diem.Diem_1,Diem.Diem_2 from sinhvien  join Diem on sinhvien.MaSV = Diem.MaSV  join MonHoc on Diem.MaMH = MonHoc.MaMH order by sinhvien.masv";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
