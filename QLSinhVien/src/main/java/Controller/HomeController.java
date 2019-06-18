@@ -30,6 +30,7 @@ public class HomeController {
 		Connection con = ConnectionDB.getInstance().getConnection();
 		return con;
 	}
+	
 	@RequestMapping("/Sv")
 	public String Sv() {
 		return "Sinhvien";
