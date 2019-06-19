@@ -1,6 +1,7 @@
 
 # Compiled class file
-ConnectionDB.class
+ConnectionDB.java
+*.class
 
 # Log file
 *.log
