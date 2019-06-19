@@ -215,7 +215,7 @@ public class SinhvienController {
 	 * @example: nhap 1 se tra ve sinh vien co maSinhvien=1 || nhap " g " se tra ve tat ca sinh vien co ten chua chu " g "
 	 *
 	 */
-	@RequestMapping(value = "/seachSinhvien/{tenSinhvien}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE, //
+	@RequestMapping(value = "/seachSinhvien/{searchSV}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public ArrayList<SinhVien> abc(@PathVariable("searchSV") String searchSV) throws ClassNotFoundException, SQLException {
