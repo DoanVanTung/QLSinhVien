@@ -26,3 +26,6 @@ hs_err_pid*
 
 #maven properties
 pom.properties
+
+# other
+target/
