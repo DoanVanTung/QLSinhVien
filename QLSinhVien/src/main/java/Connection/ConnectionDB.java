@@ -27,6 +27,15 @@ public class ConnectionDB {
         return instance;
     }
 
+    /**.
+	 * Ket noi database 
+	 * @author Tung.
+	 * @param String $url.
+	 * @param String $user.
+	 * @param String $password.
+	 * @return Connection connection.
+	 * @date 6/19/2019
+	 */
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection connection = DriverManager.getConnection(url, user, password);
         return connection;
