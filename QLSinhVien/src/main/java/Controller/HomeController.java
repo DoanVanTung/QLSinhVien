@@ -23,38 +23,55 @@ import Connection.ConnectionDB;;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
+	/* Khai bao connectDB */
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-
+	
 	private static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Connection con = ConnectionDB.getInstance().getConnection();
 		return con;
 	}
 	
+	/* Mo trang Sinhvien */
 	@RequestMapping("/Sv")
-	public String Sv() {
+	public String sv() {
 		return "Sinhvien";
 	}
+	
+	/* Mo trang	BangDiem */
 	@RequestMapping("bangdiem")
 	public String Transcript() {
 		return "BangDiem";
 	}
+	
+	/* Mo trang	Subject */
 	@RequestMapping("SubjectQ")
 	public String Subject() {
 		return "Subject";
 	}
+	
+	/* Mo trang	Login */
 	@RequestMapping()
 	public String Login() {
 		return "Login";
 	}
 
+	/* Khi click link back o trang dang ky se tro ve tran login */
 	@RequestMapping("/Login")
 	public String Login1() {
 		return "Login";
 	}
-
+    
+	
+	/**
+	* Khi đang nhap thanh con se mo trang TrangChu.
+	* @author Tung.
+	* @param String $account.
+	* @param String $password.
+	* @return String login or index.
+	* @date 6/19/2019
+	*/
 	@RequestMapping("TrangChu")
 	public String login(HttpServletRequest request, ModelMap model, @RequestParam("TaiKhoan") int id_User,HttpSession session) throws ClassNotFoundException, SQLException {
 		String user = request.getParameter("TaiKhoan");
@@ -85,17 +102,28 @@ public class HomeController {
 			return "Login";
 		}
 	}
-
+	
+	/* Mo trang chu khi clich vao link back tu trank doi mat khau */
 	@RequestMapping("/TrangChu1")
 	public String TrangChu1() {
 		return "index";
 	}
 
+	/* Mo trang dang ki */
 	@RequestMapping("dangky")
 	public String dangky() {
 		return "Signup";
 	}
 
+	/**
+	* Khi dang ki nhan duoc bien String account chua 
+	* thong tin dang ki bao gom tai khoan va mat khau .
+	* @author Tung.
+	* @param String $account.
+	* @return Integer data , data = 1 => dang ki thanh cong,
+	* data = 2 => dang ki that bai
+	* @date 6/19/2019
+	*/
 	@RequestMapping(value = "/inser/{insert}", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
@@ -139,11 +167,21 @@ public class HomeController {
 		return tg;
 	}
 
+	/* mo trang doi mat khau */
 	@RequestMapping("DoiMK")
 	public String DoiMK() {
 		return "EditMK";
 	}
 
+	/**
+	* Khi click button sua nhan duoc bien String editPass chua 
+	* thong tin sau bao gom tai khoan va mat khau , mat khau moi .
+	* @author Tung.
+	* @param String $editPass.
+	* @return Integer data , data = 1 => Edit thanh cong,
+	* data = 2 => Edit that bai.
+	* @date 6/19/2019
+	*/
 	@RequestMapping(value = "/EditMK/{insert}", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
