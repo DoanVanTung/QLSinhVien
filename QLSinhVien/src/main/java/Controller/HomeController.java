@@ -99,7 +99,6 @@ public class HomeController {
 		if (d == 1) {
 			return "index";
 		} else {
-			model.addAttribute("mess", "Sai thÃ´ng Tin Ä�Äƒng Nháº­p");
 			return "Login";
 		}
 	}
@@ -119,7 +118,6 @@ public class HomeController {
 	/**
 	 * Khi dang ki nhan duoc bien String account chua thong tin dang ki bao gom tai
 	 * khoan va mat khau .
-	 * 
 	 * @author Tung.
 	 * @param String $account.
 	 * @return Integer data , data = 1 => dang ki thanh cong, data = 2 => dang ki
@@ -155,7 +153,6 @@ public class HomeController {
 					pstmt = conn.prepareStatement("insert into DangNhap values('" + arr[0] + "',N'" + arr[1] + "')");
 					pstmt.executeUpdate();
 					tg = 1;
-					moMap.addAttribute("mess1", "Ä�Äƒng KÃ­ thÃ nh CÃ´ng");
 				} else {
 					tg = 2;
 				}
