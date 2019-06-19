@@ -19,12 +19,16 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-
+<div style="background-color: powderblue; ">
+        <header style="display: -webkit-inline-box;"> <img
+            src="https://www.utc.edu.vn/themes/UTC_V2/images/main-logo.png">
+            	
+     </header>
+      </div>
+<h2 align="center">ĐĂNG KÝ MÔN HỌC</h2>
 	<section class="clearfix huy-cpoyright">
-		<h3 align="center">Đăng ký Môn Học</h3>
 		<form class="form-horizontal" method="get" style="margin-left: 150px;">
-			<h2>Chọn kì học</h2>
+			<h5>Chọn kì học</h5>
 			<select id="ddlViewBy">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -41,7 +45,7 @@
 				class="btn btn-outline-success my-2 my-sm-0"
 				class='btn btn-info btn-lg' type='button' data-toggle='modal'>Search</button>
 		</form>
-		<h4 align="center">Danh Sách Môn Học</h4>
+		<h3 align="center">Danh Sách Môn Học</h3>
 		<table class="table clearfix"
 			style="width: 1200px; height: auto; margin: auto;" id="table">
 
@@ -148,13 +152,15 @@ function myFunction(){
 													+ res[i].subjectName
 													+ "</td><td><button class='btn btn-info btn-lg' onclick='functionDelete("
 													+ res[i].subjectId
-													+ ")' >Xoa</button ><button data-target='#myModalEdit' type='button' onclick=functionEdit() class='btn btn-info btn-lg' data-toggle='modal'>Sửa</button><button onclick=functionEdit() class='btn btn-info btn-lg'>Đăng Ký</button></td></tr>";
+													+ ")' >Xoa</button ><button data-target='#myModalEdit' type='button' onclick=functionEdit() class='btn btn-info btn-lg' data-toggle='modal'>Sửa</button><button onclick=functionDK("
+													+ res[i].subjectId
+													+ ") class='btn btn-info btn-lg'>Đăng Ký</button></td></tr>";
 											$('#content').html(data);
 										}
 
 									},
 									error : function() {
-										alert("error occurred");
+										alert("Lỗi!");
 									}
 								});
 					}
@@ -169,6 +175,7 @@ function myFunction(){
 		}
 
 	};
+	
 	function edit() {
 		var a = document.getElementById("subjectId").value;
 		var b = document.getElementById("semesterId").value;
@@ -182,11 +189,11 @@ function myFunction(){
 				subjectName : c,
 			},
 			success : function(data) {
-				alert("success Edit");
+				alert("Sửa Môn Học Thành Công");
 				location.reload();
 			},
 			error : function() {
-				alert("error Edit");
+				alert("Sửa Môn Học Thất Bại");
 
 			}
 
@@ -201,11 +208,32 @@ function myFunction(){
 			DataType : 'json',
 
 			success : function(data) {
-				alert("success Delete")
+				alert("Xóa Môn Học Thành Công")
 				location.reload();
 			},
 			error : function() {
-				alert("error Delete")
+				alert("Xóa Môn Học Thất Bại")
+			}
+		});
+	}
+	function functionDK(id) {
+
+		$.ajax({
+			url : "DKSubject/" + id,
+			type : "post",
+			contentType : "application/json",
+			DataType : 'json',
+
+			success : function(data) {
+				if(data==1){
+					alert("Đăng Ký Môn Học Thành Công")
+				}
+				else{
+					alert("Đăng Ký Môn Học Thất Bại")
+				}
+			},
+			error : function() {
+				alert("error DK")
 			}
 		});
 	}
@@ -222,11 +250,11 @@ function myFunction(){
 				subjectName : c,
 			},
 			success : function(data) {
-				alert("success Edit");
+				alert("Thêm Môn Học Thành Công");
 				location.reload();
 			},
 			error : function() {
-				alert("error Edit");
+				alert("Thêm Môn Học Thất Bại");
 
 			}
 
@@ -259,7 +287,7 @@ function functionSearch() {
 
 			},
 			error : function() {
-				alert("error occurred");
+				alert("Không Tìm Thấy Môn Học Này");
 			}
 		});
 	} 

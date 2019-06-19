@@ -7,6 +7,11 @@ public class Subject {
 	private String subjectName;
 	private int studentId;
 	private String studentName;
+	public Subject(int subjectId, String subjectName) {
+		super();
+		this.subjectId = subjectId;
+		this.subjectName = subjectName;
+	}
 	public int getSubjectId() {
 		return subjectId;
 	}
@@ -54,4 +59,9 @@ public class Subject {
 		this.studentId = studentId;
 		this.studentName = studentName;
 	}
+	public Subject(int subjectId) {
+		super();
+		this.subjectId = subjectId;
+	}
+	
 }
