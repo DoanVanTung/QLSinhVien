@@ -1,43 +1,43 @@
 package Model;
 
 public class Certificate {
-	int masv;
-	String mamh;
-	String tensv;
-	String tenmh;
+	int maSV;
+	String maMH;
+	String tenSV;
+	String tenMH;
 	float diem_1;
 	float diem_2;
 
-	public int getMasv() {
-		return masv;
+	public int getMaSV() {
+		return maSV;
 	}
 
-	public void setMasv(int masv) {
-		this.masv = masv;
+	public void setMaSV(int maSV) {
+		this.maSV = maSV;
 	}
 
-	public String getMamh() {
-		return mamh;
+	public String getMaMH() {
+		return maMH;
 	}
 
-	public void setMamh(String mamh) {
-		this.mamh = mamh;
+	public void setMaMH(String maMH) {
+		this.maMH = maMH;
 	}
 
-	public String getTensv() {
-		return tensv;
+	public String getTenSV() {
+		return tenSV;
 	}
 
-	public void setTensv(String tensv) {
-		this.tensv = tensv;
+	public void setTenSV(String tenSV) {
+		this.tenSV = tenSV;
 	}
 
-	public String getTenmh() {
-		return tenmh;
+	public String getTenMH() {
+		return tenMH;
 	}
 
-	public void setTenmh(String tenmh) {
-		this.tenmh = tenmh;
+	public void setTenMH(String tenMH) {
+		this.tenMH = tenMH;
 	}
 
 	public float getDiem_1() {
@@ -56,12 +56,12 @@ public class Certificate {
 		this.diem_2 = diem_2;
 	}
 
-	public Certificate(String mamh,int masv, String tensv, String tenmh, float diem_1, float diem_2) {
+	public Certificate(String maMH, int maSV, String tenSV, String tenMH, float diem_1, float diem_2) {
 		super();
-		this.mamh = mamh;
-		this.masv = masv;
-		this.tensv = tensv;
-		this.tenmh = tenmh;
+		this.maMH = maMH;
+		this.maSV = maSV;
+		this.tenSV = tenSV;
+		this.tenMH = tenMH;
 		this.diem_1 = diem_1;
 		this.diem_2 = diem_2;
 	}

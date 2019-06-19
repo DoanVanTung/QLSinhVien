@@ -37,9 +37,9 @@ public class HomeController {
 	public String Sv() {
 		return "Sinhvien";
 	}
-	@RequestMapping("/Score")
-	public String Score() {
-		return "Cer_Table";
+	@RequestMapping("bangdiem")
+	public String Transcript() {
+		return "BangDiem";
 	}
 	@RequestMapping("SubjectQ")
 	public String Subject() {

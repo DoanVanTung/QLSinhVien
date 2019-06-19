@@ -1,7 +1,7 @@
 /**
 * Cung cap class CertificateController co nhung phuong thuc thuc hien viec ket noi database,
 * 
-* hien thi bang điem,them sua xoa va tim kiem thong tin co trong bang 
+* hien thi bang diem,them sua xoa va tim kiem thong tin co trong bang 
 * 
 * de file jsp tuong ung bat du lieu ma cac lop tra ve
 * 
@@ -33,11 +33,12 @@ import Model.Certificate;
 
 @Controller
 public class CertificateController {
-	              
+
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-//aaaaaa
+
+	// aaaaaa
 	/**
 	 * phuong thuc nay duoc su dung de tra ve connect voi database
 	 * 
@@ -49,7 +50,7 @@ public class CertificateController {
 	}
 
 	/**
-	 * khi ajax goi toi /certificate với method GET và typedata: json thi phuong
+	 * khi ajax goi toi /certificate va method GET va� typedata: json thi phuong
 	 * thuc nay se duoc su dung de tra ve 1 danh sach sau do ben jsp se lay danh
 	 * sach do va hien thi len screen.
 	 * 
@@ -90,7 +91,7 @@ public class CertificateController {
 	}
 
 	/**
-	 * khi ajax goi toi /edit với method post thi phuong thuc nay se duoc su dung de
+	 * khi ajax goi toi /edit va method post thi phuong thuc nay se duoc su dung de
 	 * giao tiep voi database va thuc hien cau lenh sql voi nhung du lieu lay duoc
 	 * tu jsp.
 	 * 
@@ -123,7 +124,7 @@ public class CertificateController {
 	}
 
 	/**
-	 * khi ajax goi toi /certificate với method GET và typedata: json thi phuong
+	 * khi ajax goi toi /certificate va method GET va� typedata: json thi phuong
 	 * thuc nay se duoc su dung de tra ve 1 danh sach tim duoc trong database sau do
 	 * ben jsp se lay danh sach do va hien thi len screen.
 	 * 
@@ -159,9 +160,9 @@ public class CertificateController {
 	}
 
 	/**
-	 * khi ajax goi toi /del/?/? với method post typadata: json thi phuong thuc nay
-	 * se duoc su dung de giao tiep voi database va thuc hien cau lenh sql voi nhung
-	 * du lieu lay duoc tu jsp.
+	 * khi ajax goi toi /del/?/? va method post typadata: json thi phuong thuc
+	 * nay se duoc su dung de giao tiep voi database va thuc hien cau lenh sql voi
+	 * nhung du lieu lay duoc tu jsp.
 	 * 
 	 * @param idSV
 	 *            Day la tham so dau tien cua phuong thuc DeleteID
@@ -186,12 +187,12 @@ public class CertificateController {
 	}
 
 	/**
-	 * khi ajax goi toi insertScore? với method post typadata: jso thi phuong thu
+	 * khi ajax goi toi insertScore? va method post typadata: jso thi phuong thu
 	 * nay se duoc su dung de giao tiep voi databas dau tien la kiem tra xem sinh
 	 * vien va mon hoc da ton tai trong bang sinh vien va mon hoc chua tiep theo
-	 * kiem tra xem sinh vien va mon hoc do da có trong bang diem chua neu sinh vien
-	 * va mon hoc da ton tai trong bang sinh vien,mon hoc va ko ton tai trong bang
-	 * diem thia thuc hien cau lenh sql voi nhung du lieu lay duoc tu jsp
+	 * kiem tra xem sinh vien va mon hoc do da co trong bang diem chua neu sinh
+	 * vien va mon hoc da ton tai trong bang sinh vien,mon hoc va ko ton tai trong
+	 * bang diem thia thuc hien cau lenh sql voi nhung du lieu lay duoc tu jsp
 	 * 
 	 * @param idS
 	 *            Day la tham so dau tien cua phuong thucinsertScore
