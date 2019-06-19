@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Connection.ConnectionDB;;
@@ -54,11 +56,11 @@ public class HomeController {
 	}
 
 	@RequestMapping("TrangChu")
-	public String login(HttpServletRequest request, ModelMap model) throws ClassNotFoundException, SQLException {
+	public String login(HttpServletRequest request, ModelMap model, @RequestParam("TaiKhoan") int id_User,HttpSession session) throws ClassNotFoundException, SQLException {
 		String user = request.getParameter("TaiKhoan");
 		String pass = request.getParameter("MatKhau");
 		String sql = "select * from DangNhap";
-
+		session.setAttribute("id_User", user);
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();

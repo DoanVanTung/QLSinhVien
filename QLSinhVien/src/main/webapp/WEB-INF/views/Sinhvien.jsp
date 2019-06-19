@@ -32,7 +32,7 @@
 					function() {
 						$
 								.ajax({
-									url : "table_sv",
+									url : "tableSinhvien",
 									type : "Get",
 									contentType : "application/json",
 									// DataType : 'json',
@@ -40,12 +40,12 @@
 										var data = "";
 										for (var i = 0; i < res.length; i++) {
 											data += "<tr><td>"
-													+ res[i].maSV
+													+ res[i].maSinhvien
 													+ "</td><td>"
-													+ res[i].tenSV
+													+ res[i].tenSinhvien
 													+ "</td><td>"
-													+ res[i].age
-													+ "</td><td><button type='submit' class='btn btn-warning' id='btnDelete' value ='"+res[i].masv+"' onclick=functionDelete('"+res[i].maSV+"')>Delete</button></td><td><button data-target='#myModalAdd' onclick='functionEdit()'  class='btn btn-info btn-lg' data-toggle='modal'>edit</button></td></tr>";
+													+ res[i].tuoi
+													+ "</td><td><button type='submit' class='btn btn-warning' id='btnDelete' value ='"+res[i].maSinhvien+"' onclick=functionDelete('"+res[i].maSinhvien+"')>Delete</button></td><td><button data-target='#myModalAdd' onclick='functionEdit()'  class='btn btn-info btn-lg' data-toggle='modal'>edit</button></td></tr>";
 											$('#content').html(data);
 										}
 
@@ -59,21 +59,21 @@
 
 <%-- xóa thông tin sinh viên --%>
 <script>
-	function functionDelete(id) {
+	function functionDelete(idSinhvien) {
 
 		$.ajax({
 
-			url : "Delete_sv/" + id,
+			url : "deleteSinhvien/" + idSinhvien,
 			type : "POST",
 			contentType : "application/json",
 			dataType : 'json',
 			success : function() {
-				alert("success");
+				alert("success delete");
 				location.reload();
 
 			},
 			error : function() {
-				alert("error occurred 1");
+				alert("error delete");
 				location.reload();
 			}
 		});
@@ -83,62 +83,57 @@
 <%--chọn hàng để hiển thị thông tin --%>
 <script type="text/javascript">
 function functionEdit() {
-	var table = document.getElementById('table');
+	var table = document.getElementById('tableSinhvien');
 	for (var i = 0; i < table.rows.length; i++) {
 		table.rows[i].onclick = function name() {
-			document.getElementById('maSV').value = this.cells[0].innerHTML;
-			document.getElementById('tenSV').value = this.cells[1].innerHTML;
-			document.getElementById('age').value = this.cells[2].innerHTML;
+			document.getElementById('maSinhvien').value = this.cells[0].innerHTML;
+			document.getElementById('tenSinhvien').value = this.cells[1].innerHTML;
+			document.getElementById('tuoi').value = this.cells[2].innerHTML;
 		};
 	}
 
 };
 function functionEdit1() {
-	var table = document.getElementById('table1');
+	var table = document.getElementById('tableSinhvien1');
 	for (var i = 0; i < table.rows.length; i++) {
 		table.rows[i].onclick = function name() {
-			document.getElementById('maSV').value = this.cells[0].innerHTML;
-			document.getElementById('tenSV').value = this.cells[1].innerHTML;
-			document.getElementById('age').value = this.cells[2].innerHTML;
+			document.getElementById('maSinhvien').value = this.cells[0].innerHTML;
+			document.getElementById('tenSinhvien').value = this.cells[1].innerHTML;
+			document.getElementById('tuoi').value = this.cells[2].innerHTML;
 		};
 	}
 
 };
-	//hiện table bị ẩn
-	$(document).ready(function() {
 
-	});
 	//hiện table bị ẩn
 	$(document).ready(function() {
-		$('#seach').click(function() {
-			$('#form1').toggle(500);
+		$('#searchSinhvien').click(function() {
+			$('#formSinhvien1').toggle(500);
 		});
-		$('#add').click(function() {
-			$('#form').toggle(500);
+		$('#addSinhvien').click(function() {
+			$('#formSinhvien').toggle(500);
 		});
 	});
 </script>
 
 <script>
 	//thêm sinh viên
-	function addNew() {
-		var a = document.getElementById("maSV1").value;
-		var b = document.getElementById("tenSV1").value;
-		var c = document.getElementById("age1").value;
+	function addSinhvien() {
+		var b = document.getElementById("tenSinhvien1").value;
+		var c = document.getElementById("tuoi1").value;
 		$.ajax({
-			url : "addsv",
+			url : "addSinhvien",
 			type : "post",
 			data : {
-				maSV1 : a,
-				tenSV1 : b,
-				age1 : c,
+				tenSinhvien1 : b,
+				tuoi1 : c,
 			},
 			success : function(data) {
-				alert("success add");
+				alert("success addSinhvien");
 				location.reload();
 			},
 			error : function() {
-				alert("error add");
+				alert("error addSinhvien");
 
 			}
 
@@ -147,24 +142,24 @@ function functionEdit1() {
 </script>
 <script>
 	//sửa thông tin sinh viên
-	function edit() {
-		var a = document.getElementById("maSV").value;
-		var b = document.getElementById("tenSV").value;
-		var c = document.getElementById("age").value;
+	function editSinhvien() {
+		var a = document.getElementById("maSinhvien").value;
+		var b = document.getElementById("tenSinhvien").value;
+		var c = document.getElementById("tuoi").value;
 		$.ajax({
-			url : "edit_sv",
+			url : "editSinhvien",
 			type : "post",
 			data : {
-				maSV : a,
-				tenSV : b,
-				age : c,
+				maSinhvien : a,
+				tenSinhvien : b,
+				tuoi : c,
 			},
 			success : function(data) {
-				alert("success edit");
+				alert("success editSinhvien");
 				location.reload();
 			},
 			error : function() {
-				alert("error edit");
+				alert("error editSinhvien");
 
 			}
 
@@ -173,12 +168,12 @@ function functionEdit1() {
 </script>
 <%-- tìm kiếm sinh viên --%>
 <script>
-	function Seach() {
-		var a = document.getElementById("tenSV2").value;
+	function SearchSinhvien() {
+		var a = document.getElementById("searchSV").value;
 		$
 				.ajax({
 
-					url : "seach_sv/" + a,
+					url : "seachSinhvien/" + a,
 					type : "GET",
 					contentType : "application/json",
 					dataType : 'json',
@@ -186,15 +181,15 @@ function functionEdit1() {
 						var data = "";
 						for (var i = 0; i < res.length; i++) {
 							data += "<tr><td>"
-									+ res[i].maSV
+									+ res[i].maSinhvien
 									+ "</td><td>"
-									+ res[i].tenSV
+									+ res[i].tenSinhvien
 									+ "</td><td>"
-									+ res[i].age
+									+ res[i].tuoi
 									+ "</td> <td><button id='"
-									+ res[i].maSV
+									+ res[i].maSinhvien
 									+ "' onclick='functionDelete("
-									+ res[i].maSV
+									+ res[i].maSinhvien
 									+ ")'  class='btn btn-info btn-lg' data-toggle='modal'>delete</button></td> <td><button data-target='#myModalAdd' onclick='functionEdit1()'  class='btn btn-info btn-lg' data-toggle='modal'>edit</button></td></tr>";
 							$('#content1').html(data);
 						}
@@ -243,8 +238,7 @@ function functionEdit1() {
 			<img src="https://www.utc.edu.vn/themes/UTC_V2/images/main-logo.png">
 		</div>
 
-		<form class="navbar-form navbar-right" action="seach_student"
-			method="post">
+		<form class="navbar-form navbar-right" >
 			<a class="nav-link" href="navigateTrangchu">Trang Chủ</a> <a
 				class="nav-link" href="#">Trợ Giúp</a> <a class="nav-link"
 				href="navigateSign_out">Đăng xuất</a>
@@ -259,13 +253,13 @@ function functionEdit1() {
 		<div style="text-align: center;">
 			<h2 style="color: blue">Thông tin học sinh</h2>
 			<hr>
-			<h3>${abc}</h3>
-			<table class="table table-hover" id="table" border="1">
+			<h3>${message}</h3>
+			<table class="table table-hover" id="tableSinhvien" border="1">
 				<thead>
 					<tr>
 						<th>mã sinh viên</th>
 						<th>tên sinh viên</th>
-						<th>số nồi bánh chưng</th>
+						<th>tuổi</th>
 						<th>action</th>
 						<th>action</th>
 					</tr>
@@ -274,55 +268,49 @@ function functionEdit1() {
 				</tbody>
 
 			</table>
-			<button id="add">thêm thông tin sinh viên</button>
-			<button id="seach">tìm kiếm sinh viên</button>
+			<button id="addSinhvien">thêm thông tin sinh viên</button>
+			<button id="searchSinhvien">tìm kiếm sinh viên</button>
 			<br> <br>
-			<div class="form-horizontal" id="form" hidden >
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="pwd">mã sinh
-						viên:</label>
-					<div class="col-sm-10">
-						<input type="number" class="form-control" id="maSV1" name="maSV1"
-							placeholder="mã sinh viên">
-					</div>
-				</div>
+			<div class="form-horizontal" id="formSinhvien" hidden >
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">họ tên:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="tenSV1" name="tenSV1"
+						<input type="text" class="form-control" id="tenSinhvien1" name="tenSinhvien1"
 							placeholder="Nhập vào tên Sinh viên">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">tuổi:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="age1" name="age1"
+						<input type="text" class="form-control" id="tuoi1" name="tuoi1"
 							placeholder="Nhập vào tuổi">
 					</div>
 				</div>
 				<div>
-					<button onclick="addNew()">submit</button>
+					<button onclick="addSinhvien()">submit</button>
 				</div>
 
 			</div>
-			<div class="form-horizontal" id="form1" hidden >
+			
+			<%-- form tìm kiếm Sinh viên --%>
+			<div class="form-horizontal" id="formSinhvien1" hidden >
 
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">nhập tên
 						sinh viên:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="tenSV2" name="tenSV2"
+						<input type="text" class="form-control" id="searchSV" name="searchSV"
 							placeholder="tên sinh viên">
 					</div>
 				</div>
 
 				<div>
-					<button onclick="Seach()" data-target='#myModalAdd1' type='button'
+					<button onclick="SearchSinhvien()" data-target='#myModalAdd1' type='button'
 						class='btn btn-info btn-lg' data-toggle='modal'>submit</button>
 				</div>
 
 			</div>
-		</div>
+
 
 		<%-- popup  tìm kiếm sinh viên --%>
 		<div id="myModalAdd1" class="modal fade">
@@ -335,12 +323,12 @@ function functionEdit1() {
 
 					<h2 style="color: blue">Thông tin học sinh</h2>
 					<hr>
-					<table class="table table-hover" id="table1" border="1">
+					<table class="table table-hover" id="tableSinhvien1" border="1">
 						<thead>
 							<tr>
 								<th>mã sinh viên</th>
 								<th>tên sinh viên</th>
-								<th>số nồi bánh chưng</th>
+								<th>tuổi</th>
 								<th>action</th>
 								<th>action</th>
 							</tr>
@@ -364,21 +352,22 @@ function functionEdit1() {
 					</div>
 					<div class="modal-body">
 						<form method="post" id="insert_form">
-							<label>mã sinh viên: </label> <input type="number" name="maSV"
-								id="maSV" class="form-control" readonly="readonly" /> <label>họ
-								tên :</label> <input type="text" name="tenSV" id="tenSV"
+							<label>mã sinh viên: </label> <input type="number" name="maSinhvien"
+								id="maSinhvien" class="form-control" readonly="readonly" /> <label>họ
+								tên :</label> <input type="text" name="tenSinhvien" id="tenSinhvien"
 								class="form-control" /> <label>tuổi :</label> <input
-								type="number" name="age" id="age" class="form-control" min="0"
+								type="number" name="tuoi" id="tuoi" class="form-control" min="0"
 								max="100" step="1" /> <br>
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button onclick="edit()">edit</button>
+						<button onclick="editSinhvien()">edit</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
+	</div>
 	</div>
 </body>
 </html>

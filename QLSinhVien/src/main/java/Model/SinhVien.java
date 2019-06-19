@@ -1,34 +1,31 @@
 package Model;
 
 public class SinhVien {
-	private int MaSV;
-	private String TenSV;
-	private int Age;
-	public int getMaSV() {
-		return MaSV;
-	}
-	public void setMaSV(int maSV) {
-		MaSV = maSV;
-	}
-	public SinhVien() {
+	private int maSinhvien;
+	private String tenSinhvien;
+	private int tuoi;
+	public SinhVien(int maSinhvien, String tenSinhvien, int tuoi) {
 		super();
+		this.maSinhvien = maSinhvien;
+		this.tenSinhvien = tenSinhvien;
+		this.tuoi = tuoi;
 	}
-	public SinhVien(int maSV, String tenSV, int age) {
-		super();
-		MaSV = maSV;
-		TenSV = tenSV;
-		Age = age;
+	public int getMaSinhvien() {
+		return maSinhvien;
 	}
-	public String getTenSV() {
-		return TenSV;
+	public void setMaSinhvien(int maSinhvien) {
+		this.maSinhvien = maSinhvien;
 	}
-	public void setTenSV(String tenSV) {
-		TenSV = tenSV;
+	public String getTenSinhvien() {
+		return tenSinhvien;
 	}
-	public int getAge() {
-		return Age;
+	public void setTenSinhvien(String tenSinhvien) {
+		this.tenSinhvien = tenSinhvien;
 	}
-	public void setAge(int age) {
-		Age = age;
+	public int getTuoi() {
+		return tuoi;
+	}
+	public void setTuoi(int tuoi) {
+		this.tuoi = tuoi;
 	}
 }
