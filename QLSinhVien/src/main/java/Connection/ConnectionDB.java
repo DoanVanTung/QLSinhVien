@@ -1,6 +1,5 @@
 package Connection;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,16 +8,16 @@ import java.sql.Statement;
 
 public class ConnectionDB {
 
-    // static reference to itself
+	// static reference to itself
     private static ConnectionDB instance = new ConnectionDB();
-    String url = "jdbc:postgresql://127.0.0.1:5432/QuanLySinhVien";
-    String user = "postgres";
-    String password = "ngkhai99";
+    String url = "jdbc:sqlserver://localhost:1433;database=QuanLySinhVien";
+    String user = "sa";
+    String password = "123";
     
     // private constructor
     private ConnectionDB() {
         try {
-            Class.forName("org.postgresql.Driver");
+        	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -34,3 +33,4 @@ public class ConnectionDB {
     }
     
 }
+
