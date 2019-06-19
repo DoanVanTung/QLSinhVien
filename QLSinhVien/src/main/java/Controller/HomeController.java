@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import Connection.ConnectionDB;;
 
-
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -27,61 +26,63 @@ public class HomeController {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	private static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Connection con = ConnectionDB.getInstance().getConnection();
 		return con;
 	}
-	
+
 	/* Mo trang Sinhvien */
 	@RequestMapping("/Sv")
 	public String sv() {
 		return "Sinhvien";
 	}
-	
-	/* Mo trang	BangDiem */
+
+	/* Mo trang BangDiem */
 	@RequestMapping("bangdiem")
-	public String Transcript() {
+	public String tranScript() {
 		return "BangDiem";
 	}
-	
-	/* Mo trang	Subject */
+
+	/* Mo trang Subject */
 	@RequestMapping("SubjectQ")
-	public String Subject() {
+	public String subject() {
 		return "Subject";
 	}
-	
-	/* Mo trang	Login */
+
+	/* Mo trang Login */
 	@RequestMapping()
-	public String Login() {
+	public String login() {
 		return "Login";
 	}
 
 	/* Khi click link back o trang dang ky se tro ve tran login */
 	@RequestMapping("/Login")
-	public String Login1() {
+	public String login1() {
 		return "Login";
 	}
-    
-	
+
 	/**
-	* Khi đang nhap thanh con se mo trang TrangChu.
-	* @author Tung.
-	* @param String $account.
-	* @param String $password.
-	* @return String login or index.
-	* @date 6/19/2019
-	*/
+	 * Khi đang nhap thanh con se mo trang TrangChu.
+	 * 
+	 * @author Tung.
+	 * @param String $account.
+	 * @param String $password.
+	 * @return String login or index.
+	 * @date 6/19/2019
+	 */
 	@RequestMapping("TrangChu")
-	public String login(HttpServletRequest request, ModelMap model, @RequestParam("TaiKhoan") int id_User,HttpSession session) throws ClassNotFoundException, SQLException {
+	public String login(HttpServletRequest request, ModelMap model, @RequestParam("TaiKhoan") int id_User,
+			HttpSession session) throws ClassNotFoundException, SQLException {
+		int d = 0;
 		String user = request.getParameter("TaiKhoan");
 		String pass = request.getParameter("MatKhau");
+		
 		String sql = "select * from DangNhap";
 		session.setAttribute("id_User", user);
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
-		int d = 0;
 		try {
 			while (rs.next()) {
 				if (user.trim().equals(rs.getString(1)) && pass.trim().equals(rs.getString(2))) {
@@ -102,33 +103,37 @@ public class HomeController {
 			return "Login";
 		}
 	}
-	
+
 	/* Mo trang chu khi clich vao link back tu trank doi mat khau */
 	@RequestMapping("/TrangChu1")
-	public String TrangChu1() {
+	public String trangChu1() {
 		return "index";
 	}
 
 	/* Mo trang dang ki */
 	@RequestMapping("dangky")
-	public String dangky() {
+	public String dangKy() {
 		return "Signup";
 	}
 
 	/**
-	* Khi dang ki nhan duoc bien String account chua 
-	* thong tin dang ki bao gom tai khoan va mat khau .
-	* @author Tung.
-	* @param String $account.
-	* @return Integer data , data = 1 => dang ki thanh cong,
-	* data = 2 => dang ki that bai
-	* @date 6/19/2019
-	*/
+	 * Khi dang ki nhan duoc bien String account chua thong tin dang ki bao gom tai
+	 * khoan va mat khau .
+	 * 
+	 * @author Tung.
+	 * @param String $account.
+	 * @return Integer data , data = 1 => dang ki thanh cong, data = 2 => dang ki
+	 *         that bai
+	 * @date 6/19/2019
+	 */
 	@RequestMapping(value = "/inser/{insert}", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
-	public int insert(@PathVariable("insert") String insert, ModelMap moMap) throws ClassNotFoundException, SQLException {
+	public int insert(@PathVariable("insert") String insert, ModelMap moMap)
+			throws ClassNotFoundException, SQLException {
+		int d = 0;
+		int tg = 0;
 		System.out.println("da vao ham insert");
 		String[] arr = insert.split("_");
 		String sql = "select * from DangNhap";
@@ -136,8 +141,7 @@ public class HomeController {
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
-		int d = 0;
-		int tg = 0;
+		
 		try {
 			while (rs.next()) {
 				String masv = rs.getString(1);
@@ -169,36 +173,37 @@ public class HomeController {
 
 	/* mo trang doi mat khau */
 	@RequestMapping("DoiMK")
-	public String DoiMK() {
+	public String doiMK() {
 		return "EditMK";
 	}
 
 	/**
-	* Khi click button sua nhan duoc bien String editPass chua 
-	* thong tin sau bao gom tai khoan va mat khau , mat khau moi .
-	* @author Tung.
-	* @param String $editPass.
-	* @return Integer data , data = 1 => Edit thanh cong,
-	* data = 2 => Edit that bai.
-	* @date 6/19/2019
-	*/
+	 * Khi click button sua nhan duoc bien String editPass chua thong tin sau bao
+	 * gom tai khoan va mat khau , mat khau moi .
+	 * 
+	 * @author Tung.
+	 * @param String $editPass.
+	 * @return Integer data , data = 1 => Edit thanh cong, data = 2 => Edit that
+	 *         bai.
+	 * @date 6/19/2019
+	 */
 	@RequestMapping(value = "/EditMK/{insert}", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE, //
 			MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
-	public int EditMK(@PathVariable("insert") String insert, ModelMap moMap)
+	public int editMK(@PathVariable("insert") String insert, ModelMap moMap)
 			throws ClassNotFoundException, SQLException {
-		System.out.println("da vao ham insert");
+		int d = 0;
+		int tg = 0;
+		String masv;
+		String mk = null;
 		String[] arr = insert.split("_");
 		String sql = "select * from DangNhap";
 
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
-		int d = 0;
-		int tg = 0;
-		String masv;
-		String mk = null;
+		
 		try {
 			while (rs.next()) {
 				masv = rs.getString(1);
