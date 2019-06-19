@@ -1,9 +1,11 @@
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -12,6 +14,7 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet"
@@ -24,6 +27,7 @@
 <title>Run</title>
 
 </head>
+
 <style>
 .btn-primary {
 	color: lawngreen;
@@ -58,8 +62,8 @@ button, textarea {
 	text-align: center;
 }
 </style>
-<%--đọc DTB in ra bảng --%>
 <body>
+
 	<nav class="navbar navbar-inverse">
 	<div class="form-inline">
 		<a class="navbar-brand"></a> <input class="form-control mr-sm-2"
@@ -104,11 +108,13 @@ button, textarea {
 							<div class="row">
 								<div class="col-md-12">
 									<center>
-										<a href='#myModalAddSV' class='trigger-btn'
+
+										<!-- <a href='#myModalAddSV' class='trigger-btn'
 											data-toggle='modal'>
 											<button style="font-size: larger;"
 												class="btn btn-info btn-sm" id="addSV">Thêm sinh
-												viên</button>
+												viên</button> -->
+
 										</a> <a href='#myModalAddScore' class='trigger-btn'
 											data-toggle='modal'>
 											<button style="font-size: larger;"
@@ -141,6 +147,7 @@ button, textarea {
 					</div>
 				</div>
 			</div>
+
 			<!-- Form Sửa -->
 			<div id="myModalEdit" class="modal fade">
 				<div class="modal-dialog">
@@ -152,9 +159,9 @@ button, textarea {
 						</div>
 						<div class="modal-body">
 							<form method="post" id="edit_form">
-								<input type="hidden" name="idsub" id="idsub" class="form-control"
-									 /> <label>ID</label><input type="text" name="ids"
-									id="ids" class="form-control" readonly="true" /> <label>Name</label><input
+								<input type="hidden" name="idsub" id="idsub"
+									class="form-control" /> <label>ID</label><input type="text"
+									name="ids" id="ids" class="form-control" readonly="true" /> <label>Name</label><input
 									type="text" name="names" id="names" class="form-control"
 									readonly="true" /> <label>Điểm_1</label><input type="number"
 									min="0" max="10" step="0.1" name="diem1" id="diem1"
@@ -173,8 +180,9 @@ button, textarea {
 					</div>
 				</div>
 			</div>
+
 			<!-- form thêm sinh viên -->
-			<div id="myModalAddSV" class="modal fade">
+			<!-- <div id="myModalAddSV" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -184,7 +192,7 @@ button, textarea {
 						</div>
 						<div class="modal-body">
 							<form method="post" id="insert_form">
-								<!-- <label>ID: </label> -->
+								<label>ID: </label>
 								<input type="text" name="idsv" id="idsv" class="form-control"
 									hidden /> <label>Name</label> <input type="text" name="namesv"
 									id="namesv" class="form-control" /> <label>Age</label><input
@@ -198,7 +206,8 @@ button, textarea {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
+
 			<!-- form thêm điểm -->
 			<div id="myModalAddScore" class="modal fade">
 				<div class="modal-dialog">
@@ -239,20 +248,20 @@ button, textarea {
 							$("#div2").hide();
 							$
 									.ajax({
-										url : "cer",
+										url : "certificate",
 										type : "Get",
 										contentType : "application/json",
 										success : function(res) {
 											var data = "";
 											for (var i = 0; i < res.length; i++) {
 												data += "<tr><td hidden>"
-														+ res[i].mamh
+														+ res[i].maMH
 														+ "</td><td>"
-														+ res[i].masv
+														+ res[i].maSV
 														+ "</td><td>"
-														+ res[i].tensv
+														+ res[i].tenSV
 														+ "</td><td>"
-														+ res[i].tenmh
+														+ res[i].tenMH
 														+ "</td><td>"
 														+ res[i].diem_1
 														+ "</td><td>"
@@ -261,16 +270,19 @@ button, textarea {
 														+ ((res[i].diem_1 * 0.3) + (res[i].diem_2 * 0.7))
 														+ "</td> <td>"
 														+ "<button class = 'btn btn-dager' idma = '"
-														+ res[i].masv
-														+ "' class="
-														+ "'delete' onclick = 'deleteFuntion("
-														+ res[i].masv
+														+ res[i].maSV
+														+ "' class='delete' onclick = 'deleteFuntion("
+														+ res[i].maSV
 														+ ","
-														+ res[i].mamh
+														+ res[i].maMH
 														+ ")'"
-														+ ">Delete</button></td> <td><a href='#myModalEdit' class='trigger-btn' data-toggle='modal'><button onclick=Edit_Cer() class = 'btn btn-primary' class='edit_data' idma = '"
-														+ res[i].masv
-														+ "'>Edit</button></td></tr>";
+														+ ">Delete</button>"
+														+ "</td><td>"
+														+ "<a href='#myModalEdit' class='trigger-btn' data-toggle='modal'>"
+														+ "<button onclick=Edit_Cer() class = 'btn btn-primary' class='edit_data' idma = '"
+														+ res[i].maSV
+														+ "'>Edit</button>"
+														+ "</td></tr>";
 												$('#content').html(data);
 											}
 										},
@@ -280,6 +292,7 @@ button, textarea {
 
 									});
 						});
+
 		//Lấy thông tin Sửa
 		function Edit_Cer() {
 			var table = document.getElementById('table');
@@ -293,6 +306,21 @@ button, textarea {
 				};
 			}
 		}
+
+		//Lấy thông tin Sửa
+		function Edit_Cer1() {
+			var table = document.getElementById('table1');
+			for (var i = 0; i < table.rows.length; i++) {
+				table.rows[i].onclick = function name() {
+					document.getElementById('idsub').value = this.cells[0].innerHTML;
+					document.getElementById('ids').value = this.cells[1].innerHTML;
+					document.getElementById('names').value = this.cells[2].innerHTML;
+					document.getElementById('diem1').value = this.cells[4].innerHTML;
+					document.getElementById('diem2').value = this.cells[5].innerHTML;
+				};
+			}
+		}
+
 		//Sửa điểm
 		function editTable() {
 
@@ -323,6 +351,7 @@ button, textarea {
 
 			});
 		};
+
 		//Tìm kiếm onChange
 		$('#search')
 				.on(
@@ -341,13 +370,13 @@ button, textarea {
 											var data = "";
 											for (var i = 0; i < sv.length; i++) {
 												data += "<tr><td hidden>"
-														+ sv[i].mamh
+														+ sv[i].maMH
 														+ "</td><td>"
-														+ sv[i].masv
+														+ sv[i].maSV
 														+ "</td><td>"
-														+ sv[i].tensv
+														+ sv[i].tenSV
 														+ "</td><td>"
-														+ sv[i].tenmh
+														+ sv[i].tenMH
 														+ "</td><td>"
 														+ sv[i].diem_1
 														+ "</td><td>"
@@ -356,24 +385,30 @@ button, textarea {
 														+ ((sv[i].diem_1 * 0.3) + (sv[i].diem_2 * 0.7))
 														+ "</td> <td>"
 														+ "<button class = 'btn btn-dager' idma = '"
-														+ sv[i].masv
+														+ sv[i].maSV
 														+ "' class="
 														+ "'delete' onclick = 'deleteFuntion("
-														+ sv[i].masv
+														+ sv[i].maSV
+														+ ","
+														+ sv[i].maMH
 														+ ")'"
-														+ ">Delete</button></td> <td><a href='#myModalEdit' class='trigger-btn' data-toggle='modal'><button onclick=Edit_Cer() class = 'btn btn-primary' class='edit_data' idma = '"
-														+ sv[i].masv
-														+ "'>Edit</button></td></tr>";
+														+ ">Delete</button>"
+														+ "</td><td>"
+														+ "<a href='#myModalEdit' class='trigger-btn' data-toggle='modal'>"
+														+ "<button onclick=Edit_Cer1() class = 'btn btn-primary' class='edit_data' idma = '"
+														+ sv[i].maSV
+														+ "'>Edit</button>"
+														+ "</td></tr>";
 												$('#content1').html(data);
 											}
-
 										},
-										error : function() {
+										error : function(data) {
 											alert("Không tìm thấy sinh viên")
 										}
 									});
 
 						});
+
 		//Xóa
 		function deleteFuntion(id, idsub) {
 			$.ajax({
@@ -392,30 +427,33 @@ button, textarea {
 				}
 			});
 		}
+
 		//thêm sinh viên
-		function addSV() {
-			var a = document.getElementById("idsv").value;
-			var b = document.getElementById("namesv").value;
-			var c = document.getElementById("agesv").value;
-			$.ajax({
-				url : "insSV",
-				type : "post",
-				data : {
-					id : a,
-					name : b,
-					age : c,
-				},
-				success : function(data) {
-					alert("Success");
-					location.reload();
-				},
-				error : function() {
-					alert("Error");
+		/* 	function addSV() {
+				var a = document.getElementById("idsv").value;
+				var b = document.getElementById("namesv").value;
+				var c = document.getElementById("agesv").value;
+				$.ajax({
+					url : "insSV",
+					type : "post",
+					data : {
+						id : a,
+						name : b,
+						age : c,
+					},
+					success : function(data) {
+						alert("Success");
+						location.reload();
+					},
+					error : function() {
+						alert("Error");
 
-				}
+					}
 
-			});
-		};
+				});
+			};
+		 */
+
 		//Thêm điểm
 		function addScore() {
 			var a = document.getElementById("idsc").value;
@@ -423,7 +461,7 @@ button, textarea {
 			var c = document.getElementById("diem1sc").value;
 			var d = document.getElementById("diem2sc").value;
 			$.ajax({
-				url : "insScore",
+				url : "insertScore",
 				type : "post",
 				data : {
 					id : a,
@@ -442,16 +480,19 @@ button, textarea {
 
 			});
 		};
+
 		//quay lại
 		function Back() {
 			$("#div1").show();
 			$("#div2").hide();
 		}
-		/* //onchange
-		$('#search').on('change', function() {
-			var a = document.getElementById('search').value;
-			alert(a);
-		}); */
+
+		/* onchange
+		 *	$('#search').on('change', function() {
+		 *		var a = document.getElementById('search').value;
+		 *		alert(a);
+		 *	}); 
+		 */
 	</script>
 </body>
 </html>
