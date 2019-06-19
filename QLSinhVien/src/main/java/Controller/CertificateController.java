@@ -37,7 +37,6 @@ public class CertificateController {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-//aaaaaa
 //bbbbb
 	/**
 	 * phuong thuc nay duoc su dung de tra ve connect voi database
