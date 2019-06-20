@@ -24,7 +24,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Run</title>
+<title>Tra cứu điểm</title>
 
 </head>
 
