@@ -37,7 +37,11 @@ public class HomeController {
 	public String sv() {
 		return "Sinhvien";
 	}
-
+	/* Mo trang KetQua_DkyHoc */
+	@RequestMapping("KetQua_DkyHoc")
+	public String KQDK() {
+		return "KQDK";
+	}
 	/* Mo trang BangDiem */
 	@RequestMapping("bangdiem")
 	public String tranScript() {

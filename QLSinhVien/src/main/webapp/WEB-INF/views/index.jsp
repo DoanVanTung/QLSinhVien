@@ -189,7 +189,7 @@
 			<ul>
 				<li> <a href="Sv"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Sinh Viên</button></a></li>
 				<li> <a href="bangdiem"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success">Tra Cứu Điểm</button></a></li>
-				<li> <button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Tra Cứu Môn Học</button></li>
+				<li> <a href="KetQua_DkyHoc"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Tra Cứu Môn Học</button></a></li>
 				<li> <a href="SubjectQ"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Đăng Ký Môn Học</button></a></li>
 				<li> <a href="DoiMK"><button style="padding-top: 1%; margin-top:3%; width: 200px;" type="submit" class="btn btn-success" >Đổi Mật Khẩu</button></a></li>
 			</ul>
