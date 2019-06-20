@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import Connection.ConnectionDB;;
+import Connection.ConnectionDB;
+import Golobal.test;;
 
 @Controller
 @RequestMapping("/")
@@ -91,6 +92,8 @@ public class HomeController {
 			while (rs.next()) {
 				if (user.trim().equals(rs.getString(1)) && pass.trim().equals(rs.getString(2))) {
 					System.out.println();
+					session.setAttribute("user", user);
+					test.setUser(user);
 					d = 1;
 					break;
 				}
