@@ -229,11 +229,11 @@ function myFunction(){
 					alert("Đăng Ký Môn Học Thành Công")
 				}
 				else{
-					alert("Đăng Ký Môn Học Thất Bại")
+					alert("Môn Học Đã Được Đăng Ký")
 				}
 			},
 			error : function() {
-				alert("error DK")
+				alert("Đăng Ký Môn Học Thất Bại")
 			}
 		});
 	}
