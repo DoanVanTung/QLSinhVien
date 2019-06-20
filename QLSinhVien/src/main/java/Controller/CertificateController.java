@@ -38,7 +38,7 @@ public class CertificateController {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
-	// aaaaaa
+	
 	/**
 	 * phuong thuc nay duoc su dung de tra ve connect voi database
 	 * 
@@ -104,6 +104,7 @@ public class CertificateController {
 	 * @param diem_2
 	 *            Day la tham so cuoi cung cua phuong thuc edit tat ca tham so tren
 	 *            deu dc RequestParam lay tu jsp
+	 * 
 	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	@ResponseBody
@@ -132,6 +133,7 @@ public class CertificateController {
 	 *            Day la tham so duy nhat cua phuong thuc timkiem, gia tri cua tham
 	 *            so nay duoc requestParam lay tu jsp
 	 * @return list Tra ve danh sach tim duoc trong database.
+	 * @example input "n" se tim tat ca nhung ten co chu "n", tim ca ID
 	 */
 	@RequestMapping(value = "/timkiem/{infor}", method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON_VALUE, //

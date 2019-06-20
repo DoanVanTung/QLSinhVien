@@ -6,14 +6,14 @@
 <html>
 <head>
 
-<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,15 +64,17 @@ button, textarea {
 </style>
 <body>
 
-	<nav class="navbar navbar-inverse">
-	<div class="form-inline">
-		<a class="navbar-brand"></a> <input class="form-control mr-sm-2"
-			type="text" placeholder="Search" aria-label="Search" id="search">
-		<button type="button" class="btn btn-success my-2 my-sm-0">
-			<span class="glyphicon glyphicon-search"></span>
-		</button>
+	<!-- navbar -->
+	<nav class="navbar navbar-light bg-dark justify-content-between">
+	<a href="TrangChu1" class="navbar-brand"><button
+			class="btn btn-infor my-2 my-sm-0"
+			style="color: white; background: red;">Home</button></a>
+	<form class="form-inline">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search"
+			aria-label="Search" id="search">
+		<button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
 		<button class="btn btn-danger my-2 my-sm-0" onclick='Back()'>Back</button>
-	</div>
+	</form>
 	</nav>
 
 	<!-- Main -->
@@ -181,33 +183,6 @@ button, textarea {
 				</div>
 			</div>
 
-			<!-- form thêm sinh viên -->
-			<!-- <div id="myModalAddSV" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h2 style="color: red;" align="center" class="modal-title">Thêm
-								sinh viên</h2>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						<div class="modal-body">
-							<form method="post" id="insert_form">
-								<label>ID: </label>
-								<input type="text" name="idsv" id="idsv" class="form-control"
-									hidden /> <label>Name</label> <input type="text" name="namesv"
-									id="namesv" class="form-control" /> <label>Age</label><input
-									type="text" name="agesv" id="agesv" class="form-control" />
-							</form>
-						</div>
-						<div class="modal-footer">
-							<input type="submit" name="insertsv" onclick="addSV()"
-								id="insertsv" value="InsertSV" class="btn btn-success" />
-							<button type="button" class="btn btn-dager" data-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
 			<!-- form thêm điểm -->
 			<div id="myModalAddScore" class="modal fade">
 				<div class="modal-dialog">
@@ -240,7 +215,7 @@ button, textarea {
 	</div>
 
 	<script type="text/javascript">
-		// lấy dữ liệu in ra bảng  
+		// Lay du lieu duoc gui ra tu controller gan vao bang table
 		$(document)
 				.ready(
 						function() {
@@ -293,7 +268,7 @@ button, textarea {
 									});
 						});
 
-		//Lấy thông tin Sửa
+		//lay thong tin tu hang cua bang table
 		function Edit_Cer() {
 			var table = document.getElementById('table');
 			for (var i = 0; i < table.rows.length; i++) {
@@ -307,7 +282,7 @@ button, textarea {
 			}
 		}
 
-		//Lấy thông tin Sửa
+		//lay thong tin tu hang cua bang table1
 		function Edit_Cer1() {
 			var table = document.getElementById('table1');
 			for (var i = 0; i < table.rows.length; i++) {
@@ -321,7 +296,7 @@ button, textarea {
 			}
 		}
 
-		//Sửa điểm
+		// Sua diem sau khi da lay duoc thong tin tu hang va xu ly qua fole java
 		function editTable() {
 
 			var a = document.getElementById("names").value;
@@ -352,7 +327,7 @@ button, textarea {
 			});
 		};
 
-		//Tìm kiếm onChange
+		//tra cuu diem thong qua ten sinh vien hoac id sinh vien
 		$('#search')
 				.on(
 						'change',
@@ -409,7 +384,7 @@ button, textarea {
 
 						});
 
-		//Xóa
+		//xoa 1 hang duoc chon
 		function deleteFuntion(id, idsub) {
 			$.ajax({
 				url : "del/" + id + "/" + idsub,
@@ -454,7 +429,7 @@ button, textarea {
 			};
 		 */
 
-		//Thêm điểm
+		//them diem cho sinh vien
 		function addScore() {
 			var a = document.getElementById("idsc").value;
 			var b = document.getElementById("idsubsc").value;
@@ -481,7 +456,7 @@ button, textarea {
 			});
 		};
 
-		//quay lại
+		//Back lai bang diem
 		function Back() {
 			$("#div1").show();
 			$("#div2").hide();
